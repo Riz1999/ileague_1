@@ -12,8 +12,8 @@ import uuid
 from datetime import datetime, time
 
 SCOPE = "https://www.googleapis.com/auth/spreadsheets"
-SPREADSHEET_ID = "14afCQaLe9KOHw5KPQupqWwCQJUmthuUPg_Tvs4jbhXY"
-SHEET_NAME = "booked_slots"
+SPREADSHEET_ID = "1taMCHQRCV7YLn7VSEQyTKr4qeKhO8HEl-b9KpB0VXRM"
+SHEET_NAME = "classroom"
 GSHEET_URL = f"https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}"
 
 def header2(url): 
@@ -24,7 +24,7 @@ def get_data(gsheet_connector) -> pd.DataFrame:
         gsheet_connector.values()
         .get(
             spreadsheetId=SPREADSHEET_ID,
-            range=f"{SHEET_NAME}!A:E",
+            range=f"{SHEET_NAME}!A:F",
         )
         .execute()
     )
@@ -51,15 +51,16 @@ def add_row_to_gsheet(gsheet_connector, row) -> None:
 def connect_to_gsheet():
     cred = {
   "type": "service_account",
-  "project_id": "focus-sequencer-335515",
-  "private_key_id": "4ad2d73126cd5338829bcb1650707c5ab5cb3051",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC05g6fDjKWRBCq\ndbnaUTYTpJu9uKq7b7ug9a+x84tDYHyfVo8+JEDz7EZd9gZGf+jx2QxQsJxqxp8e\ngO0fUZ6M9/1YdMICEqoHSUi/Em0d7bAGo8LSbCzn0TvK9zk2bhW4iKupWBJ0henB\nPbKLRVxUzmEcdhFqlziK1+z9YrmnKdBeXNTaMDJdYFjLskOhZ2Nos9h/WgEytlz/\n8tc9uxLrp6fkInK6g4eSm3OsI0w3YZfcN7/THrxRGLT9cpOUwPdIDGVFQJjJ1++k\nW2vWH4R67/YPEWoBMAuVTk4N7GSjSJvAS0P3J7q1u75S48npji/f3wGygr4xosHu\nlb4WnkjHAgMBAAECggEAL2wqBBdoOo1QYydml+13RDIAY/2PwIBbiygtLXTfmsOm\nF+1Msuk1H9zeW459+ahZjGEugc6yyqkUGJ6Kyw2OB32RbEl7fKig6zUSfYiak2B2\np17x2VDjesgWqTAjTvoP9qbZfZTpjaN3cqG2dx0xRcgunBP1n+BRwdA2P/zMF56E\nRWjnQk9EAzThfQ2v5p9I1WIaiwP06VRyEiUsI1+6S0qiPBhpA+GZY0yAQMO4wFg/\n8Q3k8rCcQivQIj0iaYnckEUsSNsa3QCjKlWa+1gHkqlfNEctWaqLVGpMdDHdz9cN\nVc+5DRIF6SPQvOufv5LrvVJyA4vIyxygiv+yptzDYQKBgQD1TzlLfgOrhv7OO6Xv\nDHA1VwVBhcTXuFgRupOLgf1Lturiq0OIDvRwxFvXHnXC2nr0U3raC2O1jS91WNhl\nnR0zmBd1EEv/8gzkP6em9F6xB7hSiNu+3HCorR0QarV+bg2CrHlszA54+Mfe4pvl\n7vL7zzyPfA2OOfqjkcvKf50r5wKBgQC8yD01Mr4OY4OG0thSC0+X6b/Q4meekBDV\nrIpcoUW6lbvn4KgvYUcV1rD7agseoPlwab1WTQm9XFQU2udPcko/WHbdB4KedXiv\nsgZhfPFlURiDbRTe0FKB8/oQ1N2wbbTJ5ciLaMVtHIHEBoDgG/lCQvshLQVvZp9t\n4pmp8VNgIQKBgQCCVl6l2sWObIKUByNKGPzBioPzZWTKDVtVyCE+3Yk8omq4lrCh\n6Pg9tkbpzHhbWIQ9ruE2WxjWTLarjdIkY08xq5zDCS6oRe5Nk/i6/1oUi3qG98px\n5WRCawBnSZs3Grg49vTpNp517hEcPqEAkW4vFtQhlJMLP4kJQZza8eULfwKBgQCZ\n8eRP9HAeBbKlCF1VElo2tGwyZ9495JeF120BOpZFIIOaBI7CDF7OhUPP0dr9gCHJ\nNMEsligCHj+Gvjfwhm/blkVf2xb+JydihxdC+oNTrr0Bt7tUM6eEx7M9dIjPrbbH\nCbXvUWHlp2B+vRrtJoKuMTbfB/qtrI8IKchLWDs4YQKBgQDJ5ySsyJewEXbefo/l\nGJBkV1RZSSA/qkmgQOgJWAjgteKxLqgahGfZFD+lD0c0Ot66oper1rOTU2Bgug+V\nl2jkowt1yNs4AVcbN8Q721kycWj7hiNpqrmWXw+MIfiAiL5qVHsbHnJfqxtnAyiu\n6ZfmW3PboX9B5usytdfzww4qBA==\n-----END PRIVATE KEY-----\n",
-  "client_email": "access-drive@focus-sequencer-335515.iam.gserviceaccount.com",
-  "client_id": "109156515093815992059",
+  "project_id": "classroomproject-407309",
+  "private_key_id": "d3004078af14524bbc903cef774dc7ec4822c3d2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDkA+7KDM402yeD\nvL3g8FvXXIhFYOjOYvx8viURWB3p+JCRtqLNei1GZCB0Xf8jvlrCZMLs4pgpYCCs\neG4wZI8LYQk9av8izalbMjLC181rTrgB5QE/jJZ9+44+XxYDzDFW8VexBZOwtrNI\nHy+NQd69YM/ZDXvZcnQo2XIDHLJV+cKsygvzfJqgreXbjOxlv2xLLPylvH9IUmcY\nL2R5i76oa/+PUBth4k1iSqkvTX8QJwdYPg3gGUvPnlGGyDIdC5MsygnkQ8Vg240A\nSGy2wU37pWq0FEt67deOWJ9MCDWKciaTjYbJecpxbW8GiRmkmAOnu8IzZcpwYZnu\n0H3Eq0ydAgMBAAECggEARO37bhFY9RmbZHPWYv3GheBvQan+NwYtlfhVdFzTDjwa\nWDKCHOPmc/Uo6oTP8JpHDaUwWDRYE4n/1qPBi9eadrIq/OovnvHVVMBkIArlCp+N\neOUl73QsuoEliy1rllJQSBxFijpJX46bvB3RXj6fe1ic/Nzap+21t/OkR9SRBPQe\nFB/ChomZm2gjckW9U8OpAwTEkzyxd8lOCK2ERhWrJhDDH285rgIxOWZXvrr7qLdT\nGQ8D3yCJNTfEpSmggxpNBtuHOGAMVO9Y8c+vydJd7MoMI5+wNqNtdZXaVeXqF+zp\n7K1BT8IMfb+88ZugK74sTQQhypwnKPafy62+QcX6cQKBgQD0Op6jOhSX74bQJjaA\nI7JfbvRkrCJDthRXUfYbTWrN3WghzGtJnQU0Q3O+SN4wJuR1p6HKQSYZ/gMuQugR\nrW34NlkV2Psf9bgjUjKcUifEuW5taqyypsXmP55W6ynfZ4iIjAgfsZHdFjRZQMbm\nQ3da+a0Tuw1L5L8nXroRs6kJDwKBgQDvAUOQVm0gI9IuBW9xqmRWbSAMUd2R+9o7\nlArpTN9V16Cqb0mXqH1ixy+Yf8BfWeWJd4WdHPRuRL/cwO0Gylby9/wQk28KJDrA\nIq4pyjzrHGGRCPRkLrbaS1NGG4C7x1aMEucQMkYlsk+Imd61U2aJoI/O5LSt0tWo\ni3e4uQlXkwKBgQDwCV05WDA9VDHQCn6uWmdJ3Kde+r+ChUZgvDGCjAhY5S8faOZZ\np3Yh89miP8QA13jbGjKtsnJcQYemxCOKnEXlGqVcD7JhqwOb04Himex0MTwTVjD+\nNWNz9TsOenrhE8ThT5/8Zm3SOayhvETAs7ZvN82gAswCt4QYkcWW+Fk+iQKBgCUH\nwxoX6exy4Fu1B+FKjyU83xxJitTVeqiEdXRULr40HHaLq5FNz6+AQQWVtY6QdRnp\nZNBE7jIvgLKJSbAlpXcbqPhAf5HIrzmZpfZfmTSsPwmjo4nqGvaTeSGBnV56shQd\n0aMWxvuMNvppLLJXa6mjMOTTVpMf+W6VvUTnlmT1AoGBAMyL1ZC6tZpcvN80Xtd+\nIl22PEVJaIndeUfYPcwlZQW/5mqZGSfo4BF0GoQSum2luAg/lKGEFgju2db8ovKs\nxG5VsOzp0tFJfpDKhATSHTxnJvhCrntjgXz4SXF5I/+PDw2SJxqizIMQZgN8OKtS\nXyI/nyxs5U3Cvhj179fPMdch\n-----END PRIVATE KEY-----\n",
+  "client_email": "classroom@classroomproject-407309.iam.gserviceaccount.com",
+  "client_id": "107858984435990495551",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/access-drive%40focus-sequencer-335515.iam.gserviceaccount.com"
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/classroom%40classroomproject-407309.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
 }
 
     # Create a connection object.
@@ -111,15 +112,15 @@ def send_email_notification(name, mail_id, sport_type, slot_time,sport_type1,slo
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     smtp_username = "woxsenlab@gmail.com"
-    smtp_password = "gdjxsjefnyxyvkcn"
-    recipient_email = "sports@woxsen.edu.in"
+    smtp_password = "smagwihgknrxevvq"
+    recipient_email = "rizwan.zhad@woxsen.edu.in"
 
     # Email content
     
     
 
     subject = f"Slot Approval: {name} has booked a slot"
-    body = f"Dear Deepanshi Gaur,\n\n{name} has booked a slot for {sport_type} or {sport_type1} at {slot_time} or {slot_time1}. Please review and approve the slot.\n\nBest regards,\nSports"
+    body = f"Dear DR. Hemachandran K,\n\n{name} has booked a slot for {sport_type} or {sport_type1} at {slot_time} or {slot_time1}. Please review and approve the slot.\n\nBest regards,\nSports"
 
     # Create MIMEText and MIMEMultipart objects
     msg = MIMEMultipart()
